@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" http-equiv="content-type" content="text/html;
+      charset=windows-1251">
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Montserrat:ital@1&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<form charset="windows-1251" name="Q" action="" method="post">
+
+Вопрос №1<br> <i>Как вы думайте, какая основная отрасль промышленности затрагивается в нашей стране в наибольшей степени?</i><br>
+<input type="radio" name="q1" value="0">Фармацефтика<br>
+<input type="radio" name="q1" value="2">Нефтеперерабатывающая промышленность<br>
+<input type="radio" name="q1" value="1">Металлы и горнодобывающая промышленность<br>
+
+Вопрос №2<br> <i>Как вы думаете, для чего в одной и той же сфере промышленности существует множество разных компании?</i><br>
+<input type="radio" name="q2" value="0">Для создания искусственного спроса на производимый товар<br>
+<input type="radio" name="q2" value="2">Для создания конкуренции, ввиду которой качество производимой продукции будет повышатся<br>
+<input type="radio" name="q2" value="1">Для увеличения объемов производства<br>
+
+Вопрос №3<br> <i>Активно ли развивается отечественное производство в течение последних десяти лет?</i><br>
+<input type="radio" name="q3" value="0">Компании работают в убыток, развитие не идет<br>
+<input type="radio" name="q3" value="1">Медленное развитие только в некоторых сферах производства<br>
+<input type="radio" name="q3" value="2">Полный рост отечественного производства и активное развитие всех сфер деятельности<br>
+
+</form>
+
+
+<!-- невидимые формы -->
+
+<form charset="windows-1251" name="OT">
+   
+<input type="hidden" name="OT1" value="0">
+    
+<input type="hidden" name="OT2" value="3">
+   
+<input type="hidden" name="OT3" value="5">
+   
+
+</form>
+
+
+<form charset="windows-1251" name="DO" action="" method="post">
+    
+<input type="hidden" name="do1" value="2">
+    
+<input type="hidden" name="do2" value="4">
+   
+<input type="hidden" name="do3" value="6">
+
+</form>
+
+
+<form charset="windows-1251" name="A" action="" method="post">
+     
+<input type="hidden" name="tAtxt1" value="Кажется, вы не очень хорошо осведомлены о том, на чем специализируются отечественные компании. Тем не менее, данный сайт служит как раз для того чтобы вы узнали про это получше.">
+       
+<input type="hidden" name="tAtxt2" value="Кажется, вы достаточно осведомлены о специализации отечественных компании. Тем не менее, вы можете узнать о них ещё больше.">
+      
+<input type="hidden" name="tAtxt3" value="Вы очень хорошо осведомлены о существующих отечественных компаниях и  их специализации. Тем не менее, вам предлагается ознакомиться с данным сайтом, возможно, вы узнаете для себя что-то новое.">
+      
+</form>
+
+<!-- /три невидимые формы -->
+
+
+<!-- скрипт расчета результатов тестирования -->
+
+<script>
+
+<!--
+function makeDiagnosis() {
+
+  tQcnt = 7;
+  tAcnt = 4;
+
+ 
+ summa = 0;
+   
+for( j=0; j<document.Q.q1.length; j++ ) { if( document.Q.q1[j].checked ) { summa += eval(document.Q.q1[j].value); } }
+for( j=0; j<document.Q.q2.length; j++ ) { if( document.Q.q2[j].checked ) { summa += eval(document.Q.q2[j].value); } }
+for( j=0; j<document.Q.q3.length; j++ ) { if( document.Q.q3[j].checked ) { summa += eval(document.Q.q3[j].value); } }
+
+ dx = -1;
+  for( i=0; i<tAcnt; i++ ) {
+    if( summa >= eval(document.OT.elements[i].value) && summa <= eval(document.DO.elements[i].value) ) { dx = i; break; }
+  }
+
+  
+document.RES.tDiagnosis.value = "Вы набрали  "+summa+"  баллов. "+document.A.elements[dx].value;
+}
+
+
+// -->
+
+</script>
+
+<!-- /скрипт расчета результатов тестирования -->
+
+
+<!-- форма вывода результатов тестирования -->
+
+<form charset="windows-1251" name="RES">
+  
+  <center>
+   
+ <input type="button" name="pbSubmit" value="Узнать результаты" onclick="makeDiagnosis()">
+<input type="reset" value="Пройти тест заново" name="res" />
+ <br><br>
+    <textarea name="tDiagnosis" rows="3" cols="60" wrap="">
+</textarea>
+
+
+<hr width="100%" size="1">
+
+</center>
+</form>
+</body>
+</html>
